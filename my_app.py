@@ -1,4 +1,4 @@
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTime, QTimer, QLocale
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QHBoxLayout, QGroupBox, QRadioButton, QPushButton, QListWidget, QLineEdit
 
 from instr import *
@@ -35,8 +35,11 @@ class MainWin(QWidget):
         self.setWindowTitle(txt_title)
         self.resize(win_width, win_height)
         self.move(win_x, win_y)
+    
 
+def main():
+    app = QApplication([])
+    mw = MainWin()
+    app.exec_()
 
-app = QApplication([])
-mw = MainWin()
-app.exec_()
+main()

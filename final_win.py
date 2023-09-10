@@ -1,4 +1,4 @@
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTime, QTimer, QLocale
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QHBoxLayout, QGroupBox, QRadioButton, QPushButton, QListWidget, QLineEdit
 
 from instr import *
@@ -23,4 +23,7 @@ class FinalWin(QWidget):
         self.layout_line.addWidget(self.index_text, alignment = Qt.AlignCenter)
         self.layout_line.addWidget(self.workh_textm alignment = Qt.AlignCenter)
         self.setLayout(self.layout_line)
+
+    def results(self):
+        
 
