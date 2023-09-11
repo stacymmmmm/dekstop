@@ -1,4 +1,4 @@
-from PyQt5.QtCore import Qt, QTimer, QTime, QLocale
+from PyQt5.QtCore import Qt, QTime, QTimer, QLocale
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QHBoxLayout, QGroupBox, QRadioButton, QPushButton, QListWidget, QLineEdit
 
 from instr import *
@@ -29,9 +29,9 @@ class TestWin(QWidget):
 
     def timer_test(self):
         global time
-        time = QTime(0, 0, 15)
+        time = QTime(0, 1, 0)
         self.timer = QTimer()
-        self.timer.timeout.connect(self.timer1Event)
+        self.timer.timeout.connect(self.timer3Event)
         self.timer.start(1000)
 
     def timer_sits(self):
@@ -47,38 +47,42 @@ class TestWin(QWidget):
         self.timer = QTimer()
         self.timer.timeout.connect(self.timer3Event)
         self.start(1000)
+        
 
     def timer1Event(self):
-       global time
-       time = time.addSecs(-1)
-       self.text_timer.setText(time.toString("hh:mm:ss"))
-       self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
-       self.text_timer.setStyleSheet("color: rgb(0,0,0)")
-       if time.toString("hh:mm:ss") == "00:00:00":
-           self.timer.stop()
+        global time
+        time = time.addSecs(-1)
+        self.text_timer.setText(time.toString("hh:mm:ss"))
+        self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
+        self.text_timer.setStyleSheet("color:, rgb(0,0,0)")
+        if time.toString("hh:mm:ss") == "00:00:00":
+            self.text_timer.stop()
 
     def timer2Event(self):
-       global time
-       time = time.addSecs(-1)
-       self.text_timer.setText(time.toString("hh:mm:ss")[6:8])
-       self.text_timer.setStyleSheet("color: rgb(0,0,0)")
-       self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
-       if time.toString("hh:mm:ss") == "00:00:00":
-           self.timer.stop()
+        global time
+        time = time.addSecs(-1)
+        self.text_timer.setText(time.toString("hh:mm:ss" [6:8]))
+        self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
+        self.text_timer.setStyleSheet("color:, rgb(0,0,0)")
+        if time.toString("hh:mm:ss") == "00:00:00":
+            self.text_timer.stop()
 
     def timer3Event(self):
-       global time
-       time = time.addSecs(-1)
-       self.text_timer.setText(time.toString("hh:mm:ss"))
-       if int(time.toString("hh:mm:ss")[6:8]) >= 45:
-           self.text_timer.setStyleSheet("color: rgb(0,255,0)")
-       elif int(time.toString("hh:mm:ss")[6:8]) <= 15:
-           self.text_timer.setStyleSheet("color: rgb(0,255,0)")
-       else:
-           self.text_timer.setStyleSheet("color: rgb(0,0,0)")
-       self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
-       if time.toString("hh:mm:ss") == "00:00:00":
-           self.timer.stop()
+        global time
+        time = time.addSecs(-1)
+        self.text_timer.setText(time.toString("hh:mm:ss"))
+        if int(time.toString("hh:mm:ss") [6:8]) >= 45:
+            self.text_time.setStyleSheet("color: rgb(0,255,0)")
+        elif int(time.toString("hh:mm:ss") [6:8]) <= 15:
+            self.text_time.setStyleSheet("color: rgb(0,255,0)")
+        else:
+            self.text_time.setStyleSheet("color: rgb(0,0,0)")
+
+        self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
+        self.text_timer.setStyleSheet("color:, rgb(0,0,0)")
+        if time.toString("hh:mm:ss") == "00:00:00":
+            self.text_timer.stop()
+
 
     def connects(self):
         self.btn_next.clicked.connect(self.next_click)
@@ -137,7 +141,7 @@ class TestWin(QWidget):
 def next_click(self):
     self.hide()
     self.exp = Experiment(int(self.line_age.test()), self.line_test1.text(), self.line_test2.text(), aelf.line_test2.text())
-    self.fw = FinalWin(self.exp)
+    self.fw = FinalWin()
 
 def connects(self):
     self.btn_next.clicked.connect(self.next_click)
